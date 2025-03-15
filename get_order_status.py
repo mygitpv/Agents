@@ -3,7 +3,6 @@ import boto3
 import time
 
 def lambda_handler(event, context):
-    print("Event received:", json.dumps(event, indent=2))
     
     # Extract parameters from the event
     parameters = event.get('parameters', [])
@@ -22,9 +21,9 @@ def lambda_handler(event, context):
         raise ValueError("The order_id parameter must not be empty.")
     
     # Redshift connection details
-    CLUSTER_IDENTIFIER = 'aws-proserve-insights-redshift-cluster-alpha'
-    DATABASE = 'quasar'
-    DB_USER = 'veepooja'  # Replace with your actual Redshift username
+    CLUSTER_IDENTIFIER = 'cluster_name'
+    DATABASE = 'database_name'
+    DB_USER = 'user_name'  # Replace with your actual Redshift username
     
     # Initialize Redshift Data API client
     redshift_client = boto3.client('redshift-data')
